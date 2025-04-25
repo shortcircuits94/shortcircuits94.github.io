@@ -4,12 +4,14 @@ import "./Home.scss";
 import Bio from "../../components/Bio/Bio";
 import Banner from "../../components/Banner/Banner";
 import Projects from "../../components/Projects/Projects";
+import About from "../../components/About/About";
 
 const Home = () => {
   return (
     <>
       <Bio />
       <Banner />
+      <About />
       <Projects />
     </>
   );
