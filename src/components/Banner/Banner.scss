@@ -1,0 +1,37 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+.banner {
+  background-color: $accent;
+  padding: 1rem 0;
+  overflow: hidden;
+
+  &__carousel {
+    display: flex;
+    align-items: center;
+    animation: scroll 20s linear infinite;
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    margin: 0 2rem;
+  }
+
+  &__logo {
+    width: 80px;
+    height: auto;
+  }
+  &__icon {
+    font-size: 2rem;
+    color: $primary;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

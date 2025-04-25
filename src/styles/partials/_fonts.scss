@@ -1,8 +1,11 @@
+@use "./variables" as *;
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:700|Roboto:400");
 
 body {
   font-family: "Roboto";
   font-weight: 400;
+  color: $primary;
 }
 
 h1,
