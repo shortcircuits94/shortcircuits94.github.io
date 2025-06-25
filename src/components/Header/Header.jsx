@@ -1,29 +1,46 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Header.scss";
 import Logo from "../../assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (targetId) => {
     setIsMenuOpen(false);
+
+    if (location.pathname === "/") {
+      scrollToSection(targetId);
+    } else {
+      navigate("/", { state: { scrollToId: targetId } });
+    }
   };
 
   return (
     <header className="header">
       <div className="header__logo">
-        <Link to="/" onClick={handleLinkClick}>
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            handleLinkClick("top"); // scroll to top or your hero section id
+          }}
+        >
           <img src={Logo} alt="Rebecca Scott Logo" />
-        </Link>
+        </a>
       </div>
 
-      {/* Mobile Hamburger Menu */}
       <div
         className={`header__menu-toggle ${isMenuOpen ? "open" : ""}`}
         onClick={toggleMenu}
@@ -31,20 +48,19 @@ const Header = () => {
         <span className="header__menu-icon"></span>
       </div>
 
-      {/* Navigation Links */}
       <nav className={`header__nav ${isMenuOpen ? "open" : ""}`}>
-        <>
-          <Link to="/work" className="header__link" onClick={handleLinkClick}>
-            Work
-          </Link>
-          <Link
-            to="/projects"
-            className="header__link"
-            onClick={handleLinkClick}
-          >
-            Projects
-          </Link>
-        </>
+        <button
+          className="header__link"
+          onClick={() => handleLinkClick("work")}
+        >
+          Work
+        </button>
+        <button
+          className="header__link"
+          onClick={() => handleLinkClick("projects")}
+        >
+          Projects
+        </button>
       </nav>
     </header>
   );

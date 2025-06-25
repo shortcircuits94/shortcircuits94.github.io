@@ -1,40 +1,22 @@
 import React from "react";
+import { workExamples } from "../../data/workexamples";
+import { Link } from "react-router-dom";
 import "./WorkExamples.scss";
-
-const examples = [
-  {
-    id: 1,
-    title: "Rebecca Scott Portfolio",
-    url: "https://rebecca-scott.webflow.io",
-    image: "/images/work/portfolio-screenshot.png",
-    tech: ["Webflow"],
-  },
-  {
-    id: 2,
-    title: "BluePrint CPAS Site",
-    url: "https://blueprintcpas.webflow.io",
-    image: "/images/work/blueprint-screenshot.png",
-    tech: ["Webflow", "API integration"],
-  },
-  {
-    id: 3,
-    title: "Site Help Pros",
-    url: "https://sitehelppros.com",
-    image: "/images/work/sitehelp-screenshot.png",
-    tech: ["WordPress", "PHP"],
-  },
-];
 
 const WorkExamples = () => (
   <section className="work" id="work">
-    <h2 className="work__title">Websites</h2>
+    <h1 className="work__page-title">My Website Work Examples</h1>
+    <p className="work__intro">
+      Check out some of the cool websites I've built — each with its own unique
+      style and tech stack.
+    </p>
     <div className="work__grid">
-      {examples.map(({ id, title, url, image, tech }) => (
+      {workExamples.map(({ id, title, url, images = [], tech }) => (
         <div className="work__card" key={id}>
           <div className="work__card-image-wrapper">
             <img
-              src={image}
-              alt={`${title} screenshot`}
+              src={images[0]}
+              alt={`${title} homepage screenshot`}
               className="work__card-image"
             />
           </div>
@@ -52,8 +34,11 @@ const WorkExamples = () => (
             rel="noopener noreferrer"
             className="work__card-button"
           >
-            View Site
+            View Live Site
           </a>
+          <Link to={`/work/${id}`} className="work__card-details-link">
+            Learn More &rarr;
+          </Link>
         </div>
       ))}
     </div>

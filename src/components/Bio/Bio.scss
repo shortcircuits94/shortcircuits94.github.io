@@ -1,6 +1,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/fonts" as *;
-@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/mixins" as mixins;
 
 .bio {
   &__content {
@@ -9,33 +9,74 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 1rem;
+
+    // Mobile first: stack vertically
+    flex-direction: column;
+    text-align: center;
+
+    @include mixins.tablet {
+      flex-direction: row;
+      text-align: left;
+    }
   }
   &__headshot {
-    width: 60%;
+    width: 100%;
+    max-width: 250px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+
+    @include mixins.tablet {
+      width: 60%;
+      max-width: none;
+      margin-bottom: 0;
+    }
   }
+
+  &__header {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include mixins.tablet {
+      flex: 55%;
+      align-items: center;
+    }
+  }
+
   &__title {
     background-color: $accent;
     padding: 10px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: -50px;
-    margin-right: -90px;
     z-index: 10;
     position: relative;
-  }
-  &__header {
-    flex: 55%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    font-size: 1.5rem;
+    margin-top: -40px;
+    margin-right: 0;
+    text-align: center;
+
+    @include mixins.tablet {
+      margin-top: -50px;
+      margin-right: 0;
+      font-size: 2rem;
+    }
   }
 
   &__info {
-    padding-left: 20px;
-    flex: 33%;
-    border-left: 1px solid black;
+    padding-left: 0;
+    flex: 100%;
+    border-left: none;
+    margin-top: 1.5rem;
+
+    @include mixins.tablet {
+      padding-left: 20px;
+      flex: 33%;
+      border-left: 1px solid black;
+      margin-top: 0;
+    }
   }
 }

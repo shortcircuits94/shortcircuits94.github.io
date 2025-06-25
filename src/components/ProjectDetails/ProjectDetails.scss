@@ -1,0 +1,106 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.project {
+  padding: 1rem;
+  background-color: $background;
+  color: $primary;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__body {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__section {
+    margin-bottom: 2.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: $accent;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  }
+
+  &__tech {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    &-icon {
+      font-size: 2rem;
+      color: $text;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    background-color: $accent;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin: 1rem 0.5rem 0 0;
+
+    &:hover {
+      background-color: darken($accent, 10%);
+    }
+  }
+
+  &__case-study {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__case-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__case-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+// Responsive
+@include tablet {
+  .project__title {
+    font-size: 2.5rem;
+  }
+}
+
+@include desktop {
+  .project__title {
+    font-size: 3rem;
+  }
+
+  .project__body {
+    padding: 0 2rem;
+  }
+}

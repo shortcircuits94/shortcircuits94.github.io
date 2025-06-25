@@ -4,7 +4,7 @@ import Rebecca from "../../assets/rebecca-scott.jpg";
 
 const Bio = () => {
   return (
-    <footer className="bio">
+    <section className="bio">
       <section className="bio__content">
         <div className="bio__header">
           <img
@@ -28,7 +28,7 @@ const Bio = () => {
           </p>
         </div>
       </section>
-    </footer>
+    </section>
   );
 };
 
