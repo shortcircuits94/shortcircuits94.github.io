@@ -33,7 +33,8 @@
     &-image {
       width: 100%;
       height: 160px;
-      object-fit: cover;
+      object-fit: cover; // keep this
+      object-position: top; // add this line
       border-radius: 1rem;
       margin-bottom: 1rem;
     }

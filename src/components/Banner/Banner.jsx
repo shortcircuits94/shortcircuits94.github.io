@@ -38,7 +38,6 @@ const icons = [
   SiJest,
 ];
 
-// Duplicate array for seamless loop
 const items = [...icons, ...icons];
 
 const Banner = () => (

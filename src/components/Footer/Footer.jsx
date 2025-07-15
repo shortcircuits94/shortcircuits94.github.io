@@ -36,15 +36,6 @@ const Footer = () => {
             <SiGithub className="footer__icon" />
             <span>GitHub</span>
           </a>
-          <a
-            href="https://rebecca-scott.webflow.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer__link"
-          >
-            <FiGlobe className="footer__icon" />
-            <span>Webflow</span>
-          </a>
         </div>
         <p className="footer__copyright">© 2025 Rebecca Scott</p>
       </div>

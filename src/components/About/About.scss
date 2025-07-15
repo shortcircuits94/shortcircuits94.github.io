@@ -66,6 +66,53 @@
     list-style: disc inside;
   }
 
+  &__experience {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    &-card {
+      background-color: $primary;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+
+    &-role {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+      color: $background;
+      span {
+        font-weight: 400;
+        color: $accent;
+      }
+    }
+
+    &-dates {
+      font-size: 0.95rem;
+      color: darken($background, 10%);
+      margin-bottom: 0.75rem;
+    }
+
+    &-description {
+      font-size: 1rem;
+      color: $background;
+      line-height: 1.5;
+    }
+  }
+
   &__contact {
     &-list {
       display: flex;

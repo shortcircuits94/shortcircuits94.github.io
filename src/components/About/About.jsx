@@ -94,11 +94,60 @@ const About = () => (
               target="_blank"
               rel="noopener noreferrer"
               className="about__contact-link"
-            >
-              <FiGlobe className="about__contact-icon" />
-              <span>rebecca-scott.webflow.io</span>
-            </a>
+            ></a>
           </div>
+        </div>
+      </div>
+      <div className="about__experience">
+        <h4 className="about__subtitle">EXPERIENCE</h4>
+        <div className="about__experience-list">
+          {[
+            {
+              title: "Founding Developer",
+              company: "Nomad",
+              dates: "Jan 2025 – Present, Remote",
+              description:
+                "Built and maintained full-stack apps using modern frameworks and agile methods.",
+            },
+            {
+              title: "Digital Marketer",
+              company: "Ace I.T Canada",
+              dates: "Nov 2023 – Jun 2025, London, ON",
+              description:
+                "Led cross-platform strategies, enhanced brand visibility, and drove customer engagement.",
+            },
+            {
+              title: "Web Designer",
+              company: "BluePrint CPAs",
+              dates: "Jan 2021 – Jan 2023, Chatham, ON",
+              description:
+                "Developed custom websites in Webflow, leveraged APIs, and optimized user engagement via Google Analytics.",
+            },
+            {
+              title: "Application Developer",
+              company: "Let’s Face It",
+              dates: "Jan 2020 – Aug 2020, Sarnia, ON",
+              description:
+                "Built a mental health app with a focus on accessibility, usability, and ethical standards.",
+            },
+            {
+              title: "WordPress Developer",
+              company: "Site Help Pros",
+              dates: "Jan 2020 – Apr 2020, Chatham, ON",
+              description:
+                "Developed dynamic sites using Enfold/Divi, custom CSS, and SEO optimization.",
+            },
+          ].map((item, index) => (
+            <div key={index} className="about__experience-card">
+              <h5 className="about__experience-role">
+                {item.title} <span>— {item.company}</span>
+              </h5>
+              <p className="about__experience-dates">{item.dates}</p>
+              <p className="about__experience-description">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

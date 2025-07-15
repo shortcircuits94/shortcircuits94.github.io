@@ -23,27 +23,31 @@ const ProjectDetails = () => {
           <p>{project.description}</p>
         </section>
 
-        {/* Case Study */}
         {project.caseStudy && (
           <section className="project__section">
             <h2>Case Study</h2>
             <div className="project__case-study">
-              {project.caseStudy.map((block, index) => (
-                <div key={index} className="project__case-block">
-                  <ReactMarkdown>{block}</ReactMarkdown>
+              {project.caseStudy.map((block, index) => {
+                const isParagraph = !block.trim().startsWith("-");
+                const imageIndex = Math.floor(index / 2);
+                const shouldShowImage = isParagraph && index % 2 === 1;
 
-                  {/* Show an image every 2 blocks, if available */}
-                  {(index + 1) % 2 === 0 &&
-                    project.images &&
-                    project.images[(index / 2) | 0] && (
-                      <img
-                        src={project.images[(index / 2) | 0]}
-                        alt={`${project.title} screenshot ${index}`}
-                        className="project__case-image"
-                      />
-                    )}
-                </div>
-              ))}
+                return (
+                  <div key={index} className="project__case-block">
+                    <ReactMarkdown>{block}</ReactMarkdown>
+
+                    {shouldShowImage &&
+                      project.images &&
+                      project.images[imageIndex] && (
+                        <img
+                          src={project.images[imageIndex]}
+                          alt={`${project.title} screenshot ${index}`}
+                          className="project__case-image"
+                        />
+                      )}
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}
